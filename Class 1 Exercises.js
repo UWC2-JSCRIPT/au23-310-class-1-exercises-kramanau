@@ -50,7 +50,15 @@ console.log('Highest card: ', highestCard);
 // streetAddress, city, state, and zipCode. Use
 // this information to create a formatted address block
 // that could be printed onto an envelope.
+function printAddress(firstName, lastName, streetAddress, city, state, zipcode){
+    return (
+`${firstName} ${lastName}
+${streetAddress} 
+${city}, ${state} ${zipcode}`
+    )
+}
 
+console.log(printAddress('John', 'Doe', '1234 5th Ave', 'Seattle', 'WA', '12345'));
 
 // 2. You are given a string in this format:
 // firstName lastName(assume no spaces in either)
@@ -59,6 +67,15 @@ console.log('Highest card: ', highestCard);
 // 
 // Write code that is able to extract the first name from this string into a variable.
 // Hint: use indexOf, slice, and / or substring
+function extractFirstName(address){
+    const firstSpace = address.indexOf(' ')
+    return address.substring(0, firstSpace);
+}
+
+const address = `John Doe
+1234 5th Ave
+Seattle, WA 12345`;
+console.log(extractFirstName(address));
 
 
 /**
@@ -70,4 +87,8 @@ console.log('Highest card: ', highestCard);
 // Look online for documentation on Date objects.
 
 // Starting hint:
-const endDate = new Date(2019, 3, 1);
+const startDate = new Date(2020, 0, 1);
+const endDate = new Date(2020, 3, 1);
+
+const middleDate = new Date((startDate.getTime() + endDate.getTime()) / 2);
+console.log(middleDate);
